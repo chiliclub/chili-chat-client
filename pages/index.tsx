@@ -8,7 +8,6 @@ const Home: NextPage = () => {
       <Head>
         <title>chili-club</title>
         <meta name="description" content="live chatting using Socket" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>chiliclub-client</div>
     </Container>
