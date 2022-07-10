@@ -11,8 +11,6 @@ const LoginPage = () => {
   const [id, setId] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [loginError, setLoginError] = useState<boolean>(false);
-  const [isSubmitButtonDisabled, setIsSubmitButtonDisabled] =
-    useState<boolean>(true);
 
   const changeIdValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setId(e.target.value);
@@ -21,14 +19,6 @@ const LoginPage = () => {
   const changePasswordValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
-
-  useEffect(() => {
-    if (id.length > 0 && password.length > 0) {
-      setIsSubmitButtonDisabled(false);
-    } else {
-      setIsSubmitButtonDisabled(true);
-    }
-  }, [id, password]);
 
   const handleSubmit = async () => {
     try {
@@ -63,9 +53,7 @@ const LoginPage = () => {
           />
         </Label>
         {loginError && <Error>아이디 또는 비밀번호 오류입니다.</Error>}
-        <Button disabled={isSubmitButtonDisabled} onClick={handleSubmit}>
-          로그인
-        </Button>
+        <Button onClick={handleSubmit}>로그인</Button>
       </FormWrapper>
     </>
   );
