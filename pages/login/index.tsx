@@ -51,11 +51,16 @@ const LoginPage = () => {
       <FormWrapper>
         <Label htmlFor="id">
           <span>ID:</span>
-          <Input id="id" type="text" onChange={changeIdValue} />
+          <Input id="id" type="text" value={id} onChange={changeIdValue} />
         </Label>
         <Label htmlFor="password">
           <span>PW:</span>
-          <Input id="password" type="password" onChange={changePasswordValue} />
+          <Input
+            id="password"
+            type="password"
+            value={password}
+            onChange={changePasswordValue}
+          />
         </Label>
         {loginError && <Error>아이디 또는 비밀번호 오류입니다.</Error>}
         <Button disabled={isSubmitButtonDisabled} onClick={handleSubmit}>
