@@ -15,6 +15,8 @@ export const theme: ThemeType = {
     blue: "0 3px 8px 0 #b3e2e6",
   },
   disabledButton: "#f2f3f4",
+  errorText: "#e01e5a",
+  buttonColor: "#4a154b",
 };
 
 const customMediaQuery = (maxWidth: number): string =>

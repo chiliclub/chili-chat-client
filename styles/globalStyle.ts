@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import { theme } from "./theme";
 
 export type ThemeType = {
   color: {
@@ -16,12 +15,13 @@ export type ThemeType = {
     blue: string;
   };
   disabledButton: string;
+  errorText: string;
+  buttonColor: string;
 };
 
 export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
   :focus {
     outline: none;
-    border: none;
   }
   ::-webkit-scrollbar {
     display: none;
@@ -30,6 +30,7 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     font-size: 1rem;
     -webkit-text-size-adjust: none;
     -ms-overflow-style: none;
+    font-family: -apple-system,BlinkMacSystemFont,helvetica,Apple SD Gothic Neo,sans-serif;
     scrollbar-width: none;
   }
   button {
@@ -37,9 +38,5 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     padding: 0;
     border: none;
     cursor: pointer;
-    &:disabled {
-      cursor: default;
-      fill: ${theme.disabledButton};
-    }
   }
 `;
