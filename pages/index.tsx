@@ -7,9 +7,9 @@ const Home: NextPage = () => {
     <Container>
       <Head>
         <title>chili-club</title>
-        <meta name="description" content="live chatting using Socket" />
+        <meta name="description" content="live chat service using Socket" />
       </Head>
-      <div>chiliclub-client</div>
+      <div>chili-chat-client</div>
     </Container>
   );
 };
