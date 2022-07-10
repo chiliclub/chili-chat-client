@@ -35,6 +35,7 @@ const LoginPage = () => {
       await submitLoginInfo(id, password);
       router.push(`/chatrooms`);
     } catch (error) {
+      console.error(`failed to submit because of ${error}`);
       setLoginError(true);
     }
   };
