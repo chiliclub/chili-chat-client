@@ -55,7 +55,9 @@ const SignupPage = () => {
         await submitSignupInfo(id, password, nickname);
         alert("생성되었습니다!");
         router.push(`/login`);
-      } catch {}
+      } catch {
+        // TODO: ID 중복 여부 검사, 부적절한 닉네임 여부 검사
+      }
     } else {
       setIsIdErrorShown(!isIdValid);
       setIsPasswordErrorShown(!isPasswordValid);
