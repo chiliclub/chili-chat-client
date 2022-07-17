@@ -14,7 +14,7 @@ export const submitLoginInfo = async (
   password: string
 ): Promise<LoginInfoType> => {
   const response = await axios.post(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/login/`,
+    `${process.env.NEXT_PUBLIC_API_URL}/login/`,
     loginInfo({ id, password }),
     {
       withCredentials: true,
