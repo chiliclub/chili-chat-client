@@ -18,7 +18,7 @@ export const submitSignupInfo = async (
   image?: string
 ): Promise<User> => {
   const response = await axios.post(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/signup`,
+    `${process.env.NEXT_PUBLIC_API_URL}/signup`,
     signupInfo({ id, password, nickname /*image*/ }),
     {
       withCredentials: true,
