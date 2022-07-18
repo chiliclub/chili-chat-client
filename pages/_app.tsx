@@ -3,8 +3,10 @@ import Head from "next/head";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "@styles/globalStyle";
 import { theme } from "@styles/theme";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
+  const queryClient = new QueryClient();
   return (
     <>
       <Head>
@@ -12,9 +14,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <title>chili-chat</title>
       </Head>
       <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider theme={theme}>
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </QueryClientProvider>
     </>
   );
 };
