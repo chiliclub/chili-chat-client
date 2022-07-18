@@ -22,6 +22,7 @@ export const Error = styled.div`
 `;
 
 export const Title = styled.p`
+  margin: 0;
   font-weight: bold;
   font-size: 2rem;
 `;
@@ -89,4 +90,17 @@ export const Button = styled.button`
   &:disabled {
     background-color: ${theme.disabledButton};
   }
+`;
+
+export const Overlay = styled.div`
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
 `;
