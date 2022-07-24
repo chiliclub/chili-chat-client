@@ -17,9 +17,7 @@ export const submitSignupInfo = async ({
 }: {
   data: User;
 }): Promise<User> => {
-  const response = await client.post(`${signup}`, signupInfo(data), {
-    withCredentials: true,
-  });
+  const response = await client.post(`${signup}`, signupInfo(data));
 
   if (response.status !== 200) {
     throw new Error("failted to submit signup info");

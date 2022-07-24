@@ -16,10 +16,7 @@ export const submitLoginInfo = async ({
 }): Promise<LoginInfoType> => {
   const response = await client.post<LoginInfoType>(
     `${login}`,
-    loginInfo(data),
-    {
-      withCredentials: true,
-    }
+    loginInfo(data)
   );
 
   if (response.status !== 200) {
