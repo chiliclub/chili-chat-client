@@ -1,4 +1,4 @@
-import { client, login } from "@api/endpoints";
+import { client, pathList } from "@api/api";
 import { LoginInfoType } from "@type/User";
 
 const loginInfo = ({ id, password }: LoginInfoType): FormData => {
@@ -15,7 +15,7 @@ export const submitLoginInfo = async ({
   data: LoginInfoType;
 }): Promise<LoginInfoType> => {
   const response = await client.post<LoginInfoType>(
-    `${login}`,
+    pathList.Login,
     loginInfo(data)
   );
 

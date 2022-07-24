@@ -1,6 +1,6 @@
 import axios from "axios";
 import { User } from "@type/User";
-import { client, signup } from "@api/endpoints";
+import { client, pathList } from "@api/api";
 
 const signupInfo = ({ id, password, nickname /*image*/ }: User): FormData => {
   const formData = new FormData();
@@ -17,7 +17,7 @@ export const submitSignupInfo = async ({
 }: {
   data: User;
 }): Promise<User> => {
-  const response = await client.post(`${signup}`, signupInfo(data));
+  const response = await client.post(pathList.Signup, signupInfo(data));
 
   if (response.status !== 200) {
     throw new Error("failed to submit signup info");
