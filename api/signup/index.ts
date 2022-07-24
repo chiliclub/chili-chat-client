@@ -20,7 +20,7 @@ export const submitSignupInfo = async ({
   const response = await client.post(`${signup}`, signupInfo(data));
 
   if (response.status !== 200) {
-    throw new Error("failted to submit signup info");
+    throw new Error("failed to submit signup info");
   }
   return response.data;
 };
