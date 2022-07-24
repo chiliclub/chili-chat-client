@@ -52,7 +52,8 @@ const SignupPage = () => {
       setIsPasswordErrorShown(false);
       setIsNicknameErrorShown(false);
       try {
-        await submitSignupInfo(id, password, nickname);
+        const data = { id, nickname, password };
+        await submitSignupInfo(data);
         alert("생성되었습니다!");
         router.push(`/login`);
       } catch {

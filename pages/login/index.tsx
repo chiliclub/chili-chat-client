@@ -2,7 +2,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import chiliEmoji from "@public/chili.svg";
 import styled from "styled-components";
-import { submitLoginInfo } from "@api/login";
+import { submitSigninInfo } from "@api/login";
 import { useRouter } from "next/router";
 import {
   Button,
@@ -14,7 +14,6 @@ import {
   FormWrapper,
 } from "@styles/commonStyles";
 import Link from "next/link";
-import { theme } from "@styles/theme";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -32,7 +31,7 @@ const LoginPage = () => {
 
   const handleSubmit = async () => {
     try {
-      await submitLoginInfo(id, password);
+      await submitSigninInfo({ id, password });
       router.push(`/chatrooms`);
     } catch {
       setLoginError(true);
