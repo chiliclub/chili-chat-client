@@ -1,5 +1,6 @@
 import axios from "axios";
 import { User } from "@type/User";
+import { client, pathList } from "@api/api";
 
 const signupInfo = ({ id, password, nickname /*image*/ }: User): FormData => {
   const formData = new FormData();
@@ -11,22 +12,15 @@ const signupInfo = ({ id, password, nickname /*image*/ }: User): FormData => {
   return formData;
 };
 
-export const submitSignupInfo = async (
-  id: string,
-  password: string,
-  nickname: string,
-  image?: string
-): Promise<User> => {
-  const response = await axios.post(
-    `${process.env.NEXT_PUBLIC_API_URL}/signup`,
-    signupInfo({ id, password, nickname /*image*/ }),
-    {
-      withCredentials: true,
-    }
-  );
+export const submitSignupInfo = async ({
+  data,
+}: {
+  data: User;
+}): Promise<User> => {
+  const response = await client.post(pathList.Signup, signupInfo(data));
 
   if (response.status !== 200) {
-    throw new Error("failted to submit signup info");
+    throw new Error("failed to submit signup info");
   }
   return response.data;
 };
