@@ -12,11 +12,14 @@ const signupInfo = ({ id, password, nickname /*image*/ }: User): FormData => {
 };
 
 export const submitSignupInfo = async ({
-  data,
-}: {
-  data: User;
-}): Promise<User> => {
-  const response = await userClient.post(pathList.Signup, signupInfo(data));
+  id,
+  nickname,
+  password,
+}: User): Promise<User> => {
+  const response = await userClient.post<User>(
+    pathList.Signup,
+    signupInfo({ id, nickname, password })
+  );
 
   if (response.status !== 200) {
     throw new Error("failed to submit signup info");

@@ -5,4 +5,4 @@ export type User = {
   image?: string;
 };
 
-export type LoginInfoType = Omit<User, "nickname">;
+export type SigninInfoType = Omit<User, "nickname">;

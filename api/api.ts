@@ -3,7 +3,8 @@ import axios from "axios";
 export enum pathList {
   ChatRoom = "chat-room",
   Profile = "profile",
-  Login = "login",
+  MyProfile = "my",
+  Signin = "signin",
   Signup = "signup",
 }
 
