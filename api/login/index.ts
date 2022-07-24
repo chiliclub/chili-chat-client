@@ -9,10 +9,10 @@ const signinInfo = ({ id, password }: SigninInfoType): FormData => {
   return formData;
 };
 
-export const submitSigninInfo = async (
-  id: string,
-  password: string
-): Promise<SigninInfoType> => {
+export const submitSigninInfo = async ({
+  id,
+  password,
+}: SigninInfoType): Promise<SigninInfoType> => {
   const response = await userClient.post<SigninInfoType>(
     pathList.Signin,
     signinInfo({ id, password })

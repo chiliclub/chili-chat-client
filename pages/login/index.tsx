@@ -14,7 +14,6 @@ import {
   FormWrapper,
 } from "@styles/commonStyles";
 import Link from "next/link";
-import { theme } from "@styles/theme";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -32,7 +31,7 @@ const LoginPage = () => {
 
   const handleSubmit = async () => {
     try {
-      await submitSigninInfo(id, password);
+      await submitSigninInfo({ id, password });
       router.push(`/chatrooms`);
     } catch {
       setLoginError(true);
