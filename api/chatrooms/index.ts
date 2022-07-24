@@ -20,10 +20,7 @@ export const createChatroom = async (
 ): Promise<NewChatroomType> => {
   const response = await axios.post<NewChatroomType>(
     `${process.env.NEXT_PUBLIC_API_URL}/chat-rooms`,
-    title,
-    {
-      withCredentials: true,
-    }
+    title
   );
 
   if (response.status !== 200) {
