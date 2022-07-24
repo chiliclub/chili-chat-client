@@ -14,3 +14,11 @@ export const client = axios.create({
   },
   withCredentials: true,
 });
+
+export const userClient = axios.create({
+  baseURL: `${process.env.NEXT_PUBLIC_API_URL}/user`,
+  headers: {
+    Accept: "application/json",
+  },
+  withCredentials: true,
+});
