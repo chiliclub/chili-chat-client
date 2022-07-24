@@ -1,15 +1,13 @@
+import { chatRoom, client } from "@api/endpoints";
 import { ChatroomsListType, NewChatroomType } from "@type/ChatroomsList";
 import axios from "axios";
 
 export const fetchChatroomsList = async (): Promise<
   Array<ChatroomsListType>
 > => {
-  const response = await axios.get<Array<ChatroomsListType>>(
-    `${process.env.NEXT_PUBLIC_API_URL}/chat-rooms`,
-    {
-      withCredentials: true,
-    }
-  );
+  const response = await client.get<Array<ChatroomsListType>>(`${chatRoom}`, {
+    withCredentials: true,
+  });
 
   if (response.status !== 200) {
     throw new Error("failed to submit login info");
