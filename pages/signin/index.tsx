@@ -31,7 +31,8 @@ const LoginPage = () => {
 
   const handleSubmit = async () => {
     try {
-      await submitSigninInfo({ id, password });
+      const data = { id, password };
+      await submitSigninInfo(data);
       router.push(`/chatrooms`);
     } catch {
       setLoginError(true);
