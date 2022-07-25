@@ -17,7 +17,6 @@ export const submitSigninInfo = async ({
     pathList.Signin,
     signinInfo({ id, password })
   );
-
   if (response.status !== 200) {
     throw new Error("failed to submit login info");
   }

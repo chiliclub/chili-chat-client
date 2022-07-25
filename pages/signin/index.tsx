@@ -2,7 +2,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import chiliEmoji from "@public/chili.svg";
 import styled from "styled-components";
-import { submitSigninInfo } from "@api/login";
+import { submitSigninInfo } from "@api/signin";
 import { useRouter } from "next/router";
 import {
   Button,
