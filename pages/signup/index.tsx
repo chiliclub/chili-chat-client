@@ -55,7 +55,7 @@ const SignupPage = () => {
         const data = { id, nickname, password };
         await submitSignupInfo(data);
         alert("생성되었습니다!");
-        router.push(`/login`);
+        router.push(`/signin`);
       } catch {
         // TODO: ID 중복 여부 검사, 부적절한 닉네임 여부 검사
       }
