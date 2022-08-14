@@ -14,6 +14,9 @@ import {
   FormWrapper,
 } from "@styles/commonStyles";
 import Link from "next/link";
+import { useCookies } from "react-cookie";
+import axios from "axios";
+import { setCookie } from "@utils/cookies";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -31,8 +34,16 @@ const LoginPage = () => {
 
   const handleSubmit = async () => {
     try {
-      const data = { id, password };
-      await submitSigninInfo(data);
+      const loginData = { id, password };
+      const response = await submitSigninInfo(loginData);
+      const token = response.token;
+
+      setCookie("user", token, {
+        path: "/",
+        maxAge: 3600,
+        sameSite: true,
+      });
+
       router.push(`/chatrooms`);
     } catch {
       setLoginError(true);

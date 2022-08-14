@@ -6,3 +6,7 @@ export type User = {
 };
 
 export type SigninInfoType = Omit<User, "nickname">;
+
+export type SigninResponseType = {
+  token: string;
+};
