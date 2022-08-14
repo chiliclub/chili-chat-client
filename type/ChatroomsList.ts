@@ -3,6 +3,7 @@ export type ChatroomsListType = {
   updDatetime: string;
   title: string;
   adminUserNo: string;
+  adminUserNickname: string;
   totalParticipantCount: number;
   chatRoomNo: number;
 };

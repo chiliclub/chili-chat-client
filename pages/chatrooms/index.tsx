@@ -56,7 +56,7 @@ const ChatRoomsPage = () => {
                       최종 업데이트: {dateParse(eachChatroom.updDatetime)}
                     </UpdDatetime>
                   )}
-                  <AdminUser>방장: {eachChatroom.adminUserNo}</AdminUser>
+                  <AdminUser>방장: {eachChatroom.adminUserNickname}</AdminUser>
                 </SubSection>
               </Container>
             );
