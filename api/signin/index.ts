@@ -1,11 +1,11 @@
 import { pathList, userClient } from "@api/api";
-import { SigninInfoType } from "@type/User";
+import { SigninInfoType, SigninResponseType } from "@type/User";
 
 export const submitSigninInfo = async ({
   id,
   password,
-}: SigninInfoType): Promise<SigninInfoType> => {
-  const response = await userClient.post<SigninInfoType>(pathList.Signin, {
+}: SigninInfoType): Promise<SigninResponseType> => {
+  const response = await userClient.post(pathList.Signin, {
     id: id,
     password: password,
   });

@@ -1,11 +1,10 @@
-import { client, pathList } from "@api/api";
+import { AuthClient, pathList } from "@api/api";
 import { ChatroomsListType, NewChatroomType } from "@type/ChatroomsList";
-import axios from "axios";
 
 export const fetchChatroomsList = async (): Promise<
   Array<ChatroomsListType>
 > => {
-  const response = await client.get<Array<ChatroomsListType>>(
+  const response = await AuthClient.get<Array<ChatroomsListType>>(
     pathList.ChatRoom
   );
 
@@ -18,7 +17,9 @@ export const fetchChatroomsList = async (): Promise<
 export const createChatroom = async (
   title: string
 ): Promise<NewChatroomType> => {
-  const response = await axios.post<NewChatroomType>(pathList.ChatRoom, title);
+  const response = await AuthClient.post<NewChatroomType>(pathList.ChatRoom, {
+    title: title,
+  });
 
   if (response.status !== 200) {
     alert("채팅방 생성에 실패했습니다");
