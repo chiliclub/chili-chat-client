@@ -5,8 +5,10 @@ import Stomp from "stompjs";
 import ChatPresenter from "./ChatPresenter";
 
 export type message = {
-  username: string;
-  content: string;
+  username?: string;
+  message: string;
+  chatRoomNo: string;
+  contents?: string;
 };
 
 let sockJS = new SockJS(`${process.env.NEXT_PUBLIC_API_URL}/ws`);
@@ -30,9 +32,9 @@ const ChatContainer = () => {
     });
   }, [contents, roomId]);
 
-  const handleEnter = ({ username, content }: message) => {
-    const newMessage: message = { username, content };
-    stompClient.send("/hello", {}, JSON.stringify(newMessage));
+  const handleEnter = ({ message }: message) => {
+    const newMessage: message = { message, chatRoomNo: roomId };
+    stompClient.send("/pub/chat/message", {}, JSON.stringify(newMessage));
     setMessage("");
   };
 
